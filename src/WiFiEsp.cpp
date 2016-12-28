@@ -206,6 +206,11 @@ bool WiFiEspClass::ping(const char *host)
 	return EspDrv::ping(host);
 }
 
+void WiFiEspClass::deepSleep(uint16_t time)
+{
+	EspDrv::deepSleep(time);
+}
+
 static uint8_t WiFiEspClass::getFreeSocket()
 {
   // ESP Module assigns socket numbers in ascending order, so we will assign them in descending order
