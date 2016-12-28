@@ -587,7 +587,7 @@ bool EspDrv::ping(const char *host)
 
 void EspDrv::deepSleep(uint16_t time)
 {
-	LOGDEBUG(F("> entering in deep-sleep mode", time));
+	LOGDEBUG(F("> entering in deep-sleep mode"));
 	
 	int ret = sendCmd(F("AT+GSLP=%d"), 200, time);
 	
