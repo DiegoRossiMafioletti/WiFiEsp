@@ -277,6 +277,9 @@ public:
 
 
 	static bool ping(const char *host);
+	
+	static void deepSleep(uint16_t time);
+	
     static void reset();
 
     static void getRemoteIpAddress(IPAddress& ip);
