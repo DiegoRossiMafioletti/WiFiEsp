@@ -585,7 +585,7 @@ bool EspDrv::ping(const char *host)
 }
 
 
-bool EspDrv::deepSleep(uint16_t time)
+void EspDrv::deepSleep(uint16_t time)
 {
 	LOGDEBUG(F("> entering in deep-sleep mode", time);
 	
