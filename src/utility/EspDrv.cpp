@@ -98,7 +98,8 @@ void EspDrv::wifiDriverInit(Stream *espSerial)
 	getFwVersion();
 
 	// prints a warning message if the firmware is not 1.X
-	if (fwVersion[0] != '1' or
+	if (fwVersion[0] != '2' or
+		fwVersion[0] != '1' or
 		fwVersion[1] != '.')
 	{
 		LOGWARN1(F("Warning: Unsupported firmware"), fwVersion);
@@ -581,6 +582,16 @@ bool EspDrv::ping(const char *host)
 		return true;
 
 	return false;
+}
+
+
+bool EspDrv::deepSleep(uint16_t time)
+{
+	LOGDEBUG(F("> entering in deep-sleep mode", time);
+	
+	int ret = sendCmd(F("AT+GSLP=%d"), 200, time);
+	
+	return ret==TAG_OK;
 }
 
 
