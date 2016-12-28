@@ -256,6 +256,7 @@ public:
 	*/
 	bool ping(const char *host);
 
+	void deepSleep(uint16_t time);
 
 	friend class WiFiEspClient;
 	friend class WiFiEspServer;
