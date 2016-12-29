@@ -98,8 +98,8 @@ void EspDrv::wifiDriverInit(Stream *espSerial)
 	getFwVersion();
 
 	// prints a warning message if the firmware is not 1.X
-	if (fwVersion[0] != '2' or
-		fwVersion[0] != '1' or
+	if ((fwVersion[0] != '2' and
+		fwVersion[0] != '1' ) or
 		fwVersion[1] != '.')
 	{
 		LOGWARN1(F("Warning: Unsupported firmware"), fwVersion);
@@ -135,11 +135,11 @@ void EspDrv::reset()
 	
 	// Disable autoconnect
 	// Automatic connection can create problems during initialization phase at next boot
-	sendCmd(F("AT+CWAUTOCONN=0"));
+	//sendCmd(F("AT+CWAUTOCONN=0"));
 
 	// enable DHCP
-	sendCmd(F("AT+CWDHCP=1,1"));
-	delay(200);
+	//sendCmd(F("AT+CWDHCP=1,1"));
+	//delay(200);
 }
 
 
